@@ -8,7 +8,6 @@
 body {
     color: #ededed;
     background: url("images/black.png");
-    
     background-attachment: fixed;
 }
 
@@ -133,10 +132,7 @@ body {
     font-size: 56px;
     font-weight: 700;
     margin: -3px 0;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-    animation-delay: 1s;
-
+    opacity: 1;
 }
 
 .home-content p {
@@ -213,6 +209,7 @@ body {
     opacity: 0;
     animation: slideLeft 0.8s ease-in-out forwards; 
     background: url("images/Background\ Image.jpg");
+    width: 100%;
     margin-bottom: 100px;
 }
 .about-img img{
@@ -804,7 +801,112 @@ form button{
     margin-top: 90px;
 }
 
-
-@media only screen and (max-width: 600px){
-
+nav .bx-menu{
+    display: none;
 }
+
+nav .bx-window-close{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url(images/black.png);
+        width: 130rex; /* Assuming this is a typo, you might want to use '130px' */
+        height: 100rex; /* Assuming this is a typo, you might want to use '100px' */
+    }
+
+    .sub-title {
+        font-size: 30px;
+    }
+
+    .about-text h2,
+    .about-text h2 span {
+        font-size: 30px;
+    }
+
+    .about {
+        height: 100%;
+    }
+
+    .education-experience .sub-title {
+        margin-left: 50px;
+    }
+
+    .contact .sub-title {
+        margin-top: 30px;
+    }
+
+    .contact-left {
+        font-size: 16px;
+    }
+
+    .contact-left .bx-envelope,
+    .contact-left .bxs-phone,
+    .social-icons a {
+        font-size: 20px;
+    }
+
+    nav .bx-menu {
+        display: block;
+        font-size: 25px;
+    }
+
+
+    .header {
+        height: 80px;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 25%;
+        height: 100vh;
+        background: #000000;
+        padding-top: 50px;
+        right: -280px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        transition: right 0.5s ease;
+    }
+
+    .navbar li {
+        margin: 15px 0; 
+        text-align: center;
+    }
+
+    .navbar a {
+        opacity: 1;
+        animation: none;
+    }
+
+    nav .bx-menu {
+        font-size: 50px;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        cursor: pointer;
+        display: block;
+    }
+
+
+    .home-content {
+        max-width: 300px;
+    }
+
+    .home-content h1{
+        font-size: 28px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .home-content h3 {
+        font-size: 16px;
+    }
+}
+
