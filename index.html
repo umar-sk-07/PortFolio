@@ -24,6 +24,7 @@
                 <li><a href="#education-experience" style="--i:6">Education</a></li>
                 <li><a href="#contact" style="--i:7">Contact</a></li>
             </ul>
+            <i class='bx bx-menu' onclick="toggleNavbar()"></i>
         </nav>
     </header>
 
@@ -217,7 +218,7 @@
             </div>
         </div>
     </div>
-    <a href="https://github.com/umar-sk-07?tab=repositories" class="btn-box">see more</a>
+    <a href="#" class="btn-box">see more</a>
 </section>
 
 
@@ -310,5 +311,20 @@
             .catch(error => console.error('Error!', error.message))
         })
       </script>
+      <script>
+        function toggleNavbar() {
+            var navbar = document.querySelector('.navbar');
+            var menuButton = document.querySelector('.bx-menu');
+    
+            if (navbar.style.right === '-280px' || navbar.style.right === '') {
+                // If navbar is hidden, show it
+                navbar.style.right = '0';
+            } else {
+                // If navbar is visible, hide it
+                navbar.style.right = '-280px';
+            }
+        }
+    </script>
+    
 </body>
 </html>
