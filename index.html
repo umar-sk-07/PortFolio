@@ -8,13 +8,202 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .ion-icon {
+            cursor: pointer;
+        }
+
+        /* Common styles for both headers */
+        .header-common {
+            background-color: #2f2d52;
+            position: fixed;
+            width: 100%;
+            height: 10vh;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Desktop Header */
+        .desktop-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            color: white;
+        }
+
+        .desktop-header a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .desktop-header .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .desktop-header nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-indigo-500;
+        }
+
+        .desktop-header nav a {
+            margin: 0 15px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+        }
+
+        .mobile-header a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .mobile-header .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-header span {
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            margin-left: -5px;
+            /* Adjust the font size for mobile view */
+        }
+
+        .mobile-header svg {
+            width: 30px;
+            /* Adjust the size of the SVG for mobile view */
+            height: 30px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -80%;
+            width: 80%;
+            height: 100%;
+            background-color: #2f2d52;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 999;
+            transition: right 0.5s ease-in-out;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -80%;
+            width: 80%;
+            height: 100%;
+            background-color: #2f2d52;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .mobile-nav.show-menu {
+            right: 0;
+            transition: right 0.5s ease-in-out;
+        }
+
+
+        @media only screen and (max-width: 1024px) {
+            .desktop-header {
+                display: none;
+            }
+
+            .mobile-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px;
+                color: white;
+            }
+
+            .mobile-nav {
+                height: 60%;
+                margin-top: -30px;
+                display: flex;
+                transition: right 0.5s ease-in-out;
+                align-items: center;
+                width: 30%;
+            }
+            .mobile-nav ul{
+                margin-bottom: 10px;
+            }
+
+            #home{
+                margin-top: -50px;
+            }
+
+            #footer-button{
+                width: 50%; 
+                margin-left: 70px;
+                border-radius: 5px;            
+            }
+
+
+        }
+    </style>
 </head>
-<header class="text-gray-600 body-font"
-    style="background-color: #2f2d52; background-attachment: fixed; position: fixed; width: 100%; top: 0; z-index: 1000;">
+
+
+
+
+
+<!-- Desktop Header -->
+<header class="desktop-header header-common">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <!-- Replace the existing SVG with the profile icon SVG -->
+        <a href="#home" class="flex title-font font-medium items-center text-gray-900 md:mb-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
                 viewBox="0 0 24 24">
@@ -22,7 +211,71 @@
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-2.65 0-5.19-1.05-7.07-2.93-1.88-1.88-2.93-4.42-2.93-7.07s1.05-5.19 2.93-7.07C6.81 3.05 9.35 2 12 2s5.19 1.05 7.07 2.93C20.95 6.81 22 9.35 22 12s-1.05 5.19-2.93 7.07C17.19 20.95 14.65 22 12 22zm-6-2c1.61 0 3-1.39 3-3s-1.39-3-3-3-3 1.39-3 3 1.39 3 3 3zm0-4c1.87 0 3.41-1.52 3.46-3.42-.06-.68-.29-1.32-.63-1.89C8.21 9.71 7.11 10 6 10s-2.21-.29-3.28-.78c-.34.57-.57 1.21-.63 1.89C2.59 11.48 4.13 13 6 13zm12 4c-1.87 0-3.41-1.52-3.46-3.42.06-.68.29-1.32.63-1.89C15.79 9.71 16.89 10 18 10s2.21-.29 3.28-.78c.34.57.57 1.21.63 1.89-.05 1.9-1.59 3.42-3.46 3.42z">
                 </path>
             </svg>
-            <!-- End of replacement -->
+            <span class="ml-5 text-xl" style="color: white;">Umar Shaikh</span>
+        </a>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center text-indigo-500">
+            <a href="#home" class="mr-3 md:mr-5 hover:text-indigo-500">Home</a>
+            <a href="#about" class="mr-3 md:mr-5 hover:text-indigo-500">About</a>
+            <a href="#services" class="mr-3 md:mr-5 hover:text-indigo-500">Services</a>
+            <a href="#skills" class="mr-3 md:mr-5 hover:text-indigo-500">Skills</a>
+            <a href="#project" class="mr-3 md:mr-5 hover:text-indigo-500">Project</a>
+            <a href="#education" class="mr-3 md:mr-5 hover:text-indigo-500">Education</a>
+            <a href="#contact" class="mr-3 md:mr-5 hover:text-indigo-500">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="mob-head" id="mob-head">
+<!-- Mobile Header -->
+<div class="mobile-header header-common">
+    <!-- Add your SVG here -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full">
+        <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-2.65 0-5.19-1.05-7.07-2.93-1.88-1.88-2.93-4.42-2.93-7.07s1.05-5.19 2.93-7.07C6.81 3.05 9.35 2 12 2s5.19 1.05 7.07 2.93C20.95 6.81 22 9.35 22 12s-1.05 5.19-2.93 7.07C17.19 20.95 14.65 22 12 22zm-6-2c1.61 0 3-1.39 3-3s-1.39-3-3-3-3 1.39-3 3 1.39 3 3 3zm0-4c1.87 0 3.41-1.52 3.46-3.42-.06-.68-.29-1.32-.63-1.89C8.21 9.71 7.11 10 6 10s-2.21-.29-3.28-.78c-.34.57-.57 1.21-.63 1.89C2.59 11.48 4.13 13 6 13zm12 4c-1.87 0-3.41-1.52-3.46-3.42.06-.68.29-1.32.63-1.89C15.79 9.71 16.89 10 18 10s2.21-.29 3.28-.78c.34.57.57 1.21.63 1.89-.05 1.9-1.59 3.42-3.46 3.42z">
+        </path>
+    </svg>
+    <a href="#home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <span class="ml-5 text-xl" style="color: white;">Umar Shaikh</span>
+    </a>
+    <div class="menu-icon">
+        <ion-icon onclick="onToggleMenu()" name="menu" class="text-3xl cursor-pointer"></ion-icon>
+    </div>
+
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav text-white" id="mobileNav">
+    <ul>
+        <li><a href="#home" class="hover:text-indigo-500">Home</a></li>
+        <li><a href="#about" class="hover:text-indigo-500">About</a></li>
+        <li><a href="#services" class="hover:text-indigo-500">Services</a></li>
+        <li><a href="#skills" class="hover:text-indigo-500">Skills</a></li>
+        <li><a href="#project" class="hover:text-indigo-500">Project</a></li>
+        <li><a href="#education" class="hover:text-indigo-500">Education</a></li>
+        <li><a href="#contact" class="hover:text-indigo-500">Contact</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <header class="text-gray-600 body-font"
+    style="background-color: #2f2d52; background-attachment: fixed; position: fixed; width: 100%; top: 0; z-index: 1000;">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                viewBox="0 0 24 24">
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-2.65 0-5.19-1.05-7.07-2.93-1.88-1.88-2.93-4.42-2.93-7.07s1.05-5.19 2.93-7.07C6.81 3.05 9.35 2 12 2s5.19 1.05 7.07 2.93C20.95 6.81 22 9.35 22 12s-1.05 5.19-2.93 7.07C17.19 20.95 14.65 22 12 22zm-6-2c1.61 0 3-1.39 3-3s-1.39-3-3-3-3 1.39-3 3 1.39 3 3 3zm0-4c1.87 0 3.41-1.52 3.46-3.42-.06-.68-.29-1.32-.63-1.89C8.21 9.71 7.11 10 6 10s-2.21-.29-3.28-.78c-.34.57-.57 1.21-.63 1.89C2.59 11.48 4.13 13 6 13zm12 4c-1.87 0-3.41-1.52-3.46-3.42.06-.68.29-1.32.63-1.89C15.79 9.71 16.89 10 18 10s2.21-.29 3.28-.78c.34.57.57 1.21.63 1.89-.05 1.9-1.59 3.42-3.46 3.42z">
+                </path>
+            </svg>
             <span class="ml-5 text-xl" style="color: white;">Umar Shaikh</span>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center text-indigo-500">
@@ -35,21 +288,7 @@
             <a href="#contact" class="mr-5 hover:text-gray-500">Contact</a>
         </nav>
     </div>
-
-    <!-- <nav class="sm:hidden md:ml-auto flex flex-wrap items-center text-base justify-between text-indigo-500">
-            <ul class="sm:flex sm:flex-row flex-col sm:items-center sm:gap[4vw] gap-4 text-indigo-500">
-            <li><a href="#home" class="mr-5 hover:text-gray-500">Home</a></li>
-            <li><a href="#about" class="mr-5 hover:text-gray-500">About</a></li>
-            <li><a href="#services" class="mr-5 hover:text-gray-500">Services</a></li>
-            <li><a href="#skills" class="mr-5 hover:text-gray-500">Skills</a></li>
-            <li><a href="#project" class="mr-5 hover:text-gray-500">Project</a></li>
-            <li><a href="#education" class="mr-5 hover:text-gray-500">Education</a></li>
-            <li><a href="#contact" class="mr-5 hover:text-gray-500">Contact</a></li>
-            </ul>
-        </nav> -->
-</header>
-
-
+</header> -->
 
 
 <body style="background-image: url(black.png); background-attachment: fixed;">
@@ -59,12 +298,15 @@
             <!-- style="background-image: url(bg-c.jpeg);">
             <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="1.jpeg"> -->
             <div class="text-center lg:w-2/3 w-full">
-                <p class="mb-5 mt-20 leading-relaxed text-3xl text-indigo-500 animate__animated animate__slideInRight">Welcome !</p>
-                <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900 animate__animated animate__slideInRight animate-on-load">Umar Shaikh</h1>
+                <p class="mb-5 mt-20 leading-relaxed text-3xl text-indigo-500 animate__animated animate__slideInRight">
+                    Welcome !</p>
+                <h1
+                    class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900 animate__animated animate__slideInRight animate-on-load">
+                    Umar Shaikh</h1>
 
-                        <h2 class="mb-10 leading-relaxed text-2xl text-black">
-                            I am a <span id="typedHeading"></span>
-                        </h2>                        
+                <h2 class="mb-10 leading-relaxed text-2xl text-black">
+                    I am a <span id="typedHeading"></span>
+                </h2>
                 <span class="inline-flex mb-20">
                     <a href="https://www.linkedin.com/in/umar-shaikh-723765191/" target="_blank"
                         rel="noopener noreferrer" class="text-indigo-500 hover:bg-indigo-600 rounded">
@@ -115,14 +357,18 @@
             </div>
             <div
                 class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900 animate__animated animate__slideInLeft">Umar Shaikh</h1>
-                <h2 class="lg:inline-block mb-2 animate__animated animate__slideInLeft text-indigo-500">Software Developer</h2>
+                <h1
+                    class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900 animate__animated animate__slideInLeft">
+                    Umar Shaikh</h1>
+                <h2 class="lg:inline-block mb-2 animate__animated animate__slideInLeft text-indigo-500">Software
+                    Developer</h2>
                 <p class="mb-8 leading-relaxed text-gray-900 animate__animated animate__slideInRight">
                     Pursuing my Bachelor's in Computer Engineering from Vishwakarma University.
                     I am a seasoned Full Stack Developer, well-versed in the intricacies of web development and Python.
                     Beyond my coding prowess, I delve into the realms of cloud computing, with a keen interest in AWS.
                     My journey includes mastering the nuances of Java, adding depth to my programming toolkit.
-                    Dedicated to crafting innovative solutions, I am committed to staying on the cutting edge of technology and contributing to impactful projects.
+                    Dedicated to crafting innovative solutions, I am committed to staying on the cutting edge of
+                    technology and contributing to impactful projects.
                     Let's embark on a journey of digital transformation together!
                 </p>
                 <ul class="list-disc text-left mb-4 ml-4 text-indigo-500 animate__animated animate__slideInRight">
@@ -144,7 +390,9 @@
     <section class="text-gray-600 body-font mt-10 " id="services" style="background-image: url(grey.jpeg); ">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
-                <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900 animate__animated animate__slideInRight">My Services</h1>
+                <h1
+                    class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900 animate__animated animate__slideInRight">
+                    My Services</h1>
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
             </div>
             <div class="flex flex-wrap -m-4 animate__animated animate__slideInLeft">
@@ -221,165 +469,179 @@
 
             <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900 ">My Skills</h1>
             <div class="animate__animated animate__slideInRight">
-            <div class="mb-5 ">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Web Design</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span>
-                </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+                <div class="mb-5 ">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Web Design</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#FF6464" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 79.2px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">PHP </span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span>
+                            style="stroke-dasharray: 79.2px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">PHP </span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#9272D4" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 94.05px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Python</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">85%</span>
+                            style="stroke-dasharray: 94.05px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Python</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">85%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#5185D4" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 64.35px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Java</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span>
+                            style="stroke-dasharray: 64.35px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Java</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#CA56F2" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 74.25px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Cloud Management</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">65%</span>
+                            style="stroke-dasharray: 74.25px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Cloud Management</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">65%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#FF6464" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 79.2px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Problem Solving </span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span>
+                            style="stroke-dasharray: 79.2px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Problem Solving </span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#9272D4" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 94.05px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">MySQL</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">70%</span>
+                            style="stroke-dasharray: 94.05px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">MySQL</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">70%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#5185D4" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 64.35px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
-            </div>
-
-
-            <div class="mb-5">
-                <div class="flex justify-between py-1">
-                    <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">C & C++</span>
-                    <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">77%</span>
+                            style="stroke-dasharray: 64.35px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
                 </div>
-                <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
-                    <path class="rc-progress-line-trail" d="M 0.5,0.5
+
+
+                <div class="mb-5">
+                    <div class="flex justify-between py-1">
+                        <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">C & C++</span>
+                        <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">77%</span>
+                    </div>
+                    <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+                        <path class="rc-progress-line-trail" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
-                    <path class="rc-progress-line-path" d="M 0.5,0.5
+                        <path class="rc-progress-line-path" d="M 0.5,0.5
          L 99.5,0.5" stroke-linecap="round" stroke="#CA56F2" stroke-width="1" fill-opacity="0"
-                        style="stroke-dasharray: 74.25px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
-                    </path>
-                </svg>
+                            style="stroke-dasharray: 74.25px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+                        </path>
+                    </svg>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
 
 
 
-    <section class="text-gray-600 body-font mb-20" id="project" style="background-image: url(grey.jpeg); background-attachment: fixed;">
-        <h1 class="sm:text-4xl text-3xl font-medium title-font text-gray-900 text-center py-20">My Work</h1>
+    <section class="text-gray-600 body-font mb-20" id="project"
+        style="background-image: url(grey.jpeg); background-attachment: fixed;">
+        <h1 class="sm:text-4xl text-3xl font-medium title-font text-gray-900 text-center py-5">My Work</h1>
         <div class="container px-5 py-24 mx-auto animate__animated animate__slideInRight">
             <div class="flex flex-wrap -m-4">
                 <div class="p-4 md:w-1/3 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" style="background-color: #c0c0ca;">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p2.jpg" alt="blog">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+                        style="background-color: #c0c0ca;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p2.jpg"
+                            alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">Web-Development</h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Orphanade Management System</h1>
-                            <p class="leading-relaxed mb-3 text-gray-900">Orphanage System provides information and management solution in an orphanage.</p>
+                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">
+                                Web-Development</h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Orphanade Management System
+                            </h1>
+                            <p class="leading-relaxed mb-3 text-gray-900">Orphanage System provides information and
+                                management solution in an orphanage.</p>
                             <div class="flex items-center flex-wrap">
-                                <a href="https://github.com/umar-sk-07/Orphanage-Management-System" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/umar-sk-07/Orphanage-Management-System"
+                                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank"
+                                    rel="noopener noreferrer">
                                     See More
-                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path d="M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
-                                <span class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <span
+                                    class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>1.2K
                                 </span>
                                 <span class="text-indigo-500 inline-flex items-center leading-none text-sm">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                                        </path>
                                     </svg>6
                                 </span>
                             </div>
@@ -388,29 +650,41 @@
                 </div>
 
                 <div class="p-4 md:w-1/3 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" style="background-color: #c0c0ca;">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p1.jpeg" alt="blog">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+                        style="background-color: #c0c0ca;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p1.jpeg"
+                            alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
+                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY
+                            </h2>
                             <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The 400 Blows</h1>
-                            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings
+                                jianbing microdosing tousled waistcoat.</p>
                             <div class="flex items-center flex-wrap">
-                                <a href="your-link-here" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank" rel="noopener noreferrer">
+                                <a href="your-link-here"
+                                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank"
+                                    rel="noopener noreferrer">
                                     See More
-                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path d="M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
-                                <span class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <span
+                                    class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>1.2K
                                 </span>
                                 <span class="text-indigo-500 inline-flex items-center leading-none text-sm">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                                        </path>
                                     </svg>6
                                 </span>
                             </div>
@@ -419,29 +693,41 @@
                 </div>
 
                 <div class="p-4 md:w-1/3 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" style="background-color: #c0c0ca;">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p3.jpg" alt="blog">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+                        style="background-color: #c0c0ca;">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block" src="p3.jpg"
+                            alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
+                            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY
+                            </h2>
                             <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-                            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                            <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings
+                                jianbing microdosing tousled waistcoat.</p>
                             <div class="flex items-center flex-wrap ">
-                                <a href="your-link-here" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank" rel="noopener noreferrer">
+                                <a href="your-link-here"
+                                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0" target="_blank"
+                                    rel="noopener noreferrer">
                                     See More
-                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path d="M12 5l7 7-7 7"></path>
                                     </svg>
                                 </a>
-                                <span class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <span
+                                    class="text-indigo-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>1.2K
                                 </span>
                                 <span class="text-indigo-500 inline-flex items-center leading-none text-sm">
-                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                                        </path>
                                     </svg>6
                                 </span>
                             </div>
@@ -451,7 +737,8 @@
             </div>
 
             <div class="w-full flex justify-center mt-8">
-                <a href="https://github.com/umar-sk-07?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                <a href="https://github.com/umar-sk-07?tab=repositories" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                     View All
                 </a>
             </div>
@@ -641,7 +928,7 @@
                             </svg>
                         </a>
                     </span>
-                    <div class="flex flex-col md:flex-row md:items-center justify-center">
+                    <div class="flex flex-col md:flex-row md:items-center justify-center" id="footer-button">
                         <a href="https://github.com/umar-sk-07" target="_blank" rel="noopener noreferrer"
                             class="mb-2 md:mb-0 md:mr-2 inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-3 md:px-4 focus:outline-none hover:bg-indigo-600 rounded text-base md:text-lg">
                             <span class="mx-auto">GitHub</span>
@@ -650,15 +937,16 @@
                             class="mb-2 md:mb-0 md:mx-2 inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-3 md:px-4 focus:outline-none hover:bg-indigo-600 rounded text-base md:text-lg">
                             <span class="mx-auto">LeetCode</span>
                         </a>
-                        <a href="https://www.hackerrank.com/profile/umar_shaikh27201" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.hackerrank.com/profile/umar_shaikh27201" target="_blank"
+                            rel="noopener noreferrer"
                             class="mb-2 md:mb-0 md:ml-2 inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-3 md:px-4 focus:outline-none hover:bg-indigo-600 rounded text-base md:text-lg">
                             <span class="mx-auto">HackerRank</span>
                         </a>
                     </div>
-                    
-                    
-                    
-                    
+
+
+
+
                 </div>
             </div>
         </div>
@@ -699,38 +987,58 @@
     </script>
 
 
-<!-- Add this script at the end of your HTML body -->
-<script>
-    // Function to smoothly scroll to the target element
-    function smoothScroll(targetId) {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - document.querySelector('header').offsetHeight,
-                behavior: 'smooth'
-            });
+    <!-- Add this script at the end of your HTML body -->
+    <script>
+        // Function to smoothly scroll to the target element
+        function smoothScroll(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - document.querySelector('header').offsetHeight,
+                    behavior: 'smooth'
+                });
+            }
         }
-    }
+        
 
-    // Attach click event listeners to navigation links
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            smoothScroll(targetId);
+        // Attach click event listeners to navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                smoothScroll(targetId);
+            });
         });
-    });
-</script>
+    </script>
 
-<script>
-    var typed = new Typed("#typedHeading", {
-        strings: ["Web developer", "Full Stack Developer", "Python Developer"],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true
-    });
-</script>
+    <script>
+        var typed = new Typed("#typedHeading", {
+            strings: ["Web developer", "Full Stack Developer", "Python Developer"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+
+    <!-- <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script> -->
+
+    <!-- JavaScript to toggle the mobile navigation -->
+    <script>
+        function onToggleMenu() {
+            var mobileNav = document.getElementById("mobileNav");
+            mobileNav.classList.toggle("show-menu");
+        }
+    </script>
+
+
+
 
 
 
