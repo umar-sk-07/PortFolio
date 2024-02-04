@@ -1,0 +1,84 @@
+body {
+    background-image: url(images/bg_banner.jpg);
+    background-size: cover; /* Optional: Adjust the background size */
+    background-attachment: fixed;
+    /* Other styles as needed */
+  }
+  
+
+.progress-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 10px;
+}
+.progress-outer{
+    background: #fff;
+    padding: 5px 60px 5px 5px;
+    border: 5px solid red;
+    border-radius: 45px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.progress{
+    background: #fff;
+    border-radius: 20px;
+    margin: 0;
+}
+.progress .progress-bar{
+    border-radius: 20px;
+    box-shadow: none;
+    animation: animate-positive 2s;
+}
+.progress .progress-value{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+@keyframes animate-positive{
+    0%{ width: 0; }
+}
+
+h1 {
+    text-align: center;
+  }
+
+  .card {
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+
+.year-bg {
+    display: inline-block;
+    width: fit-content;
+}
+
+.year-bg .title {
+    margin: 0; /* Remove default margin to avoid extra space */
+}
+
+
+.custom-placeholder::placeholder {
+    color: #495057; /* Text color for placeholders */
+    opacity: 1; /* Set opacity to fully visible */
+  }
+  
+  .custom-border {
+    border: 2px solid #6c757d; /* Border color for input fields */
+  }
+  
